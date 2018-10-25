@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "schema": "mysql -u root < database/schema.sql"
+    "schema": "node database/faker.js; mysql -u root < database/schema.sql"
   },
   "dependencies": {
     "faker": "^4.1.0",
