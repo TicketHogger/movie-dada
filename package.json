@@ -8,8 +8,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "schema": "mysql -u root < database/schema.sql"
   },
   "dependencies": {
+    "faker": "^4.1.0",
+    "mysql": "^2.16.0"
   },
   "devDependencies": {
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
