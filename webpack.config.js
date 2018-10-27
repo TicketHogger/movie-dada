@@ -4,7 +4,7 @@ module.exports = {
   entry: './client/src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'client/dist')
+    path: path.resolve(__dirname, 'client/dist'),
   },
   module: {
     rules: [
@@ -14,11 +14,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-env'],
+          },
+        },
+      },
+    ],
   },
-  mode: 'development'
+  mode: 'development',
 };

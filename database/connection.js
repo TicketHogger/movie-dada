@@ -1,7 +1,6 @@
-const mysql      = require('mysql');
+const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  user     : 'root',
-  database : 'related_movies'
+  user: 'root',
+  database: 'related_movies',
 });
- 
