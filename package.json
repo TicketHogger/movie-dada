@@ -7,22 +7,32 @@
   "engines": {
     "node": ">=6.13.0"
   },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>spec/setupTests.js"
+  },
   "scripts": {
     "test": "jest --detectOpenHandles --forceExit",
     "schema": "node database/faker.js; mysql -u root --local-infile < database/schema.sql",
     "build": "webpack --watch",
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/listen.js"
   },
   "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "express": "^4.16.4",
     "faker": "^4.1.0",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "regenerator-runtime": "^0.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
