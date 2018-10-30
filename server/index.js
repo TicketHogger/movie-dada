@@ -5,7 +5,6 @@ const path = require('path');
 const db = require('../database/connection.js');
 
 const app = express();
-const port = 3003;
 
 app.use('/static', express.static(path.join(__dirname, '../public')));
 
@@ -18,4 +17,4 @@ app.get('/api/movies/:movieid/relatedmovies', (req, res) => {
   });
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+module.exports = app;
