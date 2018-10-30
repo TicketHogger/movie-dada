@@ -7,7 +7,10 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>HR105 is bananas</div>
+      <div>
+        <h2 id="header">NEW + COMING SOON</h2>
+        <hr />
+      </div>
     )
   }
 }

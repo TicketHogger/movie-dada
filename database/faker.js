@@ -9,12 +9,12 @@ fs.writeFile('database/movie.csv', 'id,title,year,image', (err) => {
   if (err) throw err;
 });
 
-for (let i = 1; i < 21; i + 1) {
+for (let i = 1; i < 101; i += 1) {
   let year = faker.date.future();
   year = Number(JSON.stringify(year).slice(1, 5));
 
   const movie = {
-    title: faker.name.findName(),
+    title: faker.lorem.words(),
     year,
     image: `https://s3-us-west-1.amazonaws.com/moovi-images/${randomInt(20)}.jpeg`,
   };
