@@ -5,8 +5,8 @@ const connection = mysql.createConnection({
   database: 'related_movies',
 });
 
-const getAll = (callback) => {
-  connection.query('SELECT * from movies', (error, results) => {
+const getAll = (query, callback) => {
+  connection.query(`SELECT * from movies WHERE genre = '${query}'`, (error, results) => {
     if (error) {
       callback(error);
     } else {

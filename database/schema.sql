@@ -8,7 +8,8 @@ CREATE TABLE movies (
   id INT AUTO_INCREMENT PRIMARY KEY,
   title TEXT NOT NULL,
   year SMALLINT,
-  image TEXT NOT NULL
+  image TEXT NOT NULL,
+  genre TEXT NOT NULL
 );
 
 LOAD DATA LOCAL INFILE 'database/movie.csv' 
