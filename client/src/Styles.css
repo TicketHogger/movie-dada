@@ -1,0 +1,37 @@
+body {
+  background-color: #fafafa;
+}
+
+#header {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #4c4c4c;
+  margin-bottom: 1px;
+  border-bottom: solid 2px #4c4c4c;
+  border-bottom-width: 10px;
+  width: 15%;
+}
+
+/*hr {
+  position: absolute;
+  width: 240px;
+  height: 10px;
+  background-color: #4c4c4c;
+}*/
+
+.posters {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border: solid 1px #cccccc;
+  padding: 15px;
+}
+
+.frame {
+  margin: 5px;
+  color: #4b4e68;
+}
+
+img {
+  height: 200px;
+  width: 140px;
+}
