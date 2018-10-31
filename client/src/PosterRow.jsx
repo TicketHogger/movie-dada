@@ -3,8 +3,8 @@ import Poster from './Poster.jsx';
 
 const PosterRow = ({ movies }) => {
   return (
-    <div>
-      { movies.map(el => (<Poster poster={el.image} title={el.title} key={el.id}/>)) }
+    <div className="posters">
+      { movies.map(poster => (<Poster poster={poster.image} title={poster.title} key={poster.id}/>)) }
     </div>
   )
 }
