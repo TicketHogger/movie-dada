@@ -1,4 +1,6 @@
 import React from 'react';
+import PosterRow from './PosterRow.jsx';
+import Poster from './Poster.jsx';
 
 const axios = require('axios');
 
@@ -17,7 +19,8 @@ class App extends React.Component {
 
   getMovies () {
     axios.get(`/api/movies/:${this.state.genre}/relatedmovies`)
-      .then(response => console.log(response))
+      .then(response => {this.setState({movieList: response.data})
+      })
       .catch(error => console.log(error));
   }
 
@@ -26,6 +29,7 @@ class App extends React.Component {
       <div>
         <h2 id="header">Related Movies</h2>
         <hr />
+        <PosterRow movies={this.state.movieList}/>
       </div>
     )
   }
