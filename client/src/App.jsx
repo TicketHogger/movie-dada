@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Styles.css';
+import Styles from './Styles.css';
 import PosterRow from './PosterRow.jsx';
 import Poster from './Poster.jsx';
 
@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="container">
         <h2 id="header">Related Movies</h2>
         <PosterRow movies={this.state.movieList}/>
       </div>
