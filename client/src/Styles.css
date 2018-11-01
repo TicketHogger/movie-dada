@@ -57,6 +57,7 @@ img {
 .outer:hover img {
   transform: scale(1.1);
   opacity: 0.75;
+  cursor: pointer;
 }
 
 h4 {
@@ -70,6 +71,7 @@ h4 {
 
 h4:hover {
   color: blue;
+  cursor: pointer;
 }
 
 .left-arrow {
