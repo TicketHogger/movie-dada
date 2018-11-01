@@ -1,5 +1,5 @@
 import React from 'react';
-import Styles from './Styles.css';
+import './Styles.css';
 import PosterRow from './PosterRow.jsx';
 import Poster from './Poster.jsx';
 import LeftArrow from './LeftArrow.jsx';
@@ -14,7 +14,9 @@ class App extends React.Component {
       genre: props.genre,
       movieList: [],
       currIndex: 0
-    }
+    };
+    this.prevSlide = this.prevSlide.bind(this);
+    this.nextSlide = this.nextSlide.bind(this);
   };
 
   componentDidMount () {
@@ -22,15 +24,19 @@ class App extends React.Component {
   }
 
   prevSlide () {
-    this.setState(prevState => ({
-      currIndex: prevState.currIndex - 1
-    }));
+    if (this.state.currIndex > 0) {
+      this.setState(prevState => ({
+        currIndex: prevState.currIndex - 1
+      }));
+    }
   }
 
   nextSlide () {
-    this.setState(prevState => ({
-      currIndex: prevState.currIndex + 1
-    }));
+    if (this.state.currIndex < 8) {
+      this.setState(prevState => ({
+        currIndex: prevState.currIndex + 1
+      }));
+    }
   }
 
   getMovies () {
@@ -45,7 +51,7 @@ class App extends React.Component {
       <div className="outermostDiv">
         <h2 id="header">Related Movies</h2>
         <div className="container">
-          <PosterRow movies={this.state.movieList}/>
+          <PosterRow movies={this.state.movieList} currIndex={this.state.currIndex}/>
           <LeftArrow prevSlide={this.prevSlide}/>
           <RightArrow nextSlide={this.nextSlide}/>
         </div>

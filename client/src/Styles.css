@@ -3,7 +3,7 @@ body {
 }
 
 .outermostDiv {
-  max-width: 1388px;
+  max-width: 1300px;
 }
 
 .container {
@@ -85,7 +85,8 @@ h4:hover {
   align-items: center;
   border: solid 1px #cccccc;
   height: 336px;
-  width: 70px;
+  width: 40px;
+  background-color: #fafafa;
 }
 
 .right-arrow {
@@ -96,5 +97,6 @@ h4:hover {
   align-items: center;
   border: solid 1px #cccccc;
   height: 336px;
-  width: 70px;
+  width: 40px;
+  background-color: #fafafa;
 }
