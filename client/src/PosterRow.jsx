@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './Styles.css';
 import Poster from './Poster.jsx';
 
-const PosterRow = ({ movies }) => {
+const PosterRow = ({ movies, currIndex }) => {
+  currIndex >= 0 ? currIndex : 0
   return (
-      <div className="posters">
-        { movies.map(poster => (<Poster poster={poster.image} title={poster.title} year={poster.year} key={poster.id}/>)) }
+      <div className="posters"> 
+        {movies.slice(currIndex, currIndex + 8).map(poster => (<Poster poster={poster.image} title={poster.title} year={poster.year} key={poster.id}/>)) }
       </div>
   )
 }

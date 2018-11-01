@@ -2,6 +2,10 @@ body {
   background-color: #fafafa;
 }
 
+.outermostDiv {
+  max-width: 1300px;
+}
+
 .container {
   display: flex;
   margin-left: 20px;
@@ -25,7 +29,6 @@ body {
 .posters {
   order: 2;
   display: flex;
-  justify-content: center;
   flex-direction: row;
   align-items: flex-start;
   background-color: white;
@@ -61,7 +64,7 @@ img {
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 17px;
   -webkit-transition: color 1s;
   -moz-transition:    color 1s;
   -ms-transition:     color 1s;
@@ -82,8 +85,8 @@ h4:hover {
   align-items: center;
   border: solid 1px #cccccc;
   height: 336px;
-  width: 70px;
-  z-index: 99;
+  width: 40px;
+  background-color: #fafafa;
 }
 
 .right-arrow {
@@ -94,6 +97,6 @@ h4:hover {
   align-items: center;
   border: solid 1px #cccccc;
   height: 336px;
-  width: 70px;
-  z-index: 99;
+  width: 40px;
+  background-color: #fafafa;
 }

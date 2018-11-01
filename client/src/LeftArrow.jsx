@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './Styles.css';
 
-const LeftArrow = () => (
-  <div className="left-arrow">◀</div>
+const LeftArrow = ({prevSlide}) => (
+  <div className="left-arrow" onClick={prevSlide}><span>◀</span></div>
 )
 
 export default LeftArrow;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const RightArrow = () => (
-  <div className="right-arrow">▶</div>
+const RightArrow = ({nextSlide}) => (
+  <div className="right-arrow" onClick={nextSlide}><span>▶</span></div>
 )
 
 export default RightArrow;
