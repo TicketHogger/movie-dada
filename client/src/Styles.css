@@ -44,14 +44,14 @@ body {
 .outer {
   overflow: hidden;
   transition-duration: 1s;
-  height: 200px;
-  width: 140px;
+  height: 190px;
+  width: 130px;
   background-color: black;
 }
 
 img {
-  height: 200px;
-  width: 140px;
+  height: 190px;
+  width: 130px;
 }
 
 .outer:hover img {
@@ -79,8 +79,8 @@ h4:hover {
   color: #4c4c4c;
   align-items: center;
   border: solid 1px #cccccc;
-  height: 322px;
-  width: 40px;
+  height: 336px;
+  width: 70px;
   z-index: 99;
 }
 
@@ -91,7 +91,7 @@ h4:hover {
   color: #4c4c4c;
   align-items: center;
   border: solid 1px #cccccc;
-  height: 322px;
-  width: 40px;
+  height: 336px;
+  width: 70px;
   z-index: 99;
 }
