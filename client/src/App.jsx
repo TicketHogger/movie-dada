@@ -2,6 +2,8 @@ import React from 'react';
 import Styles from './Styles.css';
 import PosterRow from './PosterRow.jsx';
 import Poster from './Poster.jsx';
+import LeftArrow from './LeftArrow.jsx';
+import RightArrow from './RightArrow.jsx';
 
 const axios = require('axios');
 
@@ -27,9 +29,13 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className="container">
+      <div>
         <h2 id="header">Related Movies</h2>
-        <PosterRow movies={this.state.movieList}/>
+        <div className="container">
+          <LeftArrow />
+          <PosterRow movies={this.state.movieList}/>
+          <RightArrow />
+        </div>
       </div>
     )
   }
