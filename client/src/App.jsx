@@ -12,12 +12,25 @@ class App extends React.Component {
     super(props);
     this.state = {
       genre: props.genre,
-      movieList: []
+      movieList: [],
+      currIndex: 0
     }
   };
 
   componentDidMount () {
     this.getMovies();
+  }
+
+  prevSlide () {
+    this.setState(prevState => ({
+      currIndex: prevState.currIndex - 1
+    }));
+  }
+
+  nextSlide () {
+    this.setState(prevState => ({
+      currIndex: prevState.currIndex + 1
+    }));
   }
 
   getMovies () {
@@ -29,12 +42,12 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="outermostDiv">
         <h2 id="header">Related Movies</h2>
         <div className="container">
-          <LeftArrow />
           <PosterRow movies={this.state.movieList}/>
-          <RightArrow />
+          <LeftArrow prevSlide={this.prevSlide}/>
+          <RightArrow nextSlide={this.nextSlide}/>
         </div>
       </div>
     )
