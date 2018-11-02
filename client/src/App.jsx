@@ -1,62 +1,70 @@
 import React from 'react';
 import './Styles.css';
-import PosterRow from './PosterRow.jsx';
-import Poster from './Poster.jsx';
-import LeftArrow from './LeftArrow.jsx';
-import RightArrow from './RightArrow.jsx';
+import PosterRow from './PosterRow';
+import LeftArrow from './LeftArrow';
+import RightArrow from './RightArrow';
 
 const axios = require('axios');
+
+const randNum = max => Math.floor(Math.random() * max);
+const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      genre: props.genre,
       movieList: [],
-      currIndex: 0
+      currIndex: 0,
     };
     this.prevSlide = this.prevSlide.bind(this);
     this.nextSlide = this.nextSlide.bind(this);
-  };
+  }
 
-  componentDidMount () {
+  componentDidMount() {
     this.getMovies();
   }
 
-  prevSlide () {
-    if (this.state.currIndex > 0) {
-      this.setState(prevState => ({
-        currIndex: prevState.currIndex - 1
-      }));
-    }
-  }
-
-  nextSlide () {
-    if (this.state.currIndex < 8) {
-      this.setState(prevState => ({
-        currIndex: prevState.currIndex + 1
-      }));
-    }
-  }
-
-  getMovies () {
-    axios.get(`/api/movies/:${this.state.genre}/relatedmovies`)
-      .then(response => {this.setState({movieList: response.data})
+  getMovies() {
+    const genre = genres[randNum(genres.length)];
+    axios.get(`/api/movies/:${genre}/relatedmovies`)
+      .then((response) => {
+        this.setState({ movieList: response.data });
       })
       .catch(error => console.log(error));
   }
 
-  render () {
+  prevSlide() {
+    const { currIndex } = this.state;
+    if (currIndex > 0) {
+      this.setState(prevState => ({
+        currIndex: prevState.currIndex - 1,
+      }));
+    }
+  }
+
+  nextSlide() {
+    const { currIndex } = this.state;
+    const { movieList } = this.state;
+    if (currIndex < movieList.length - 8) {
+      this.setState(prevState => ({
+        currIndex: prevState.currIndex + 1,
+      }));
+    }
+  }
+
+  render() {
+    const { movieList } = this.state;
+    const { currIndex } = this.state;
     return (
       <div className="outermostDiv">
         <h2 id="header">Related Movies</h2>
         <div className="container">
-          <PosterRow movies={this.state.movieList} currIndex={this.state.currIndex}/>
-          <LeftArrow prevSlide={this.prevSlide}/>
-          <RightArrow nextSlide={this.nextSlide}/>
+          <PosterRow movies={movieList} currIndex={currIndex} />
+          <LeftArrow prevSlide={this.prevSlide} />
+          <RightArrow nextSlide={this.nextSlide} />
         </div>
       </div>
-    )
+    );
   }
 }
 
