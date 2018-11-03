@@ -8,10 +8,14 @@
     "node": ">=6.13.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>spec/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>spec/setupTests.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
   },
   "scripts": {
-    "test": "jest --detectOpenHandles --forceExit",
+    "test": "jest --coverage",
     "schema": "node database/faker.js; mysql -u root --local-infile < database/schema.sql",
     "build": "webpack --watch",
     "start": "nodemon server/listen.js"
@@ -43,6 +47,7 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "puppeteer": "^1.9.0",
     "style-loader": "^0.23.1",
