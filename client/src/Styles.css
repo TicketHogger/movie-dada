@@ -21,8 +21,8 @@ body {
   margin-left: 20px;
   margin-bottom: 1px;
   border-bottom: solid 2px #4c4c4c;
-  border-bottom-width: 10px;
-  width: 15%;
+  border-bottom-width: 8px;
+  width: 18%;
   margin-bottom: 10px;
 }
 
@@ -78,7 +78,7 @@ h4:hover {
   cursor: pointer;
 }
 
-.left-arrow {
+.related-left-arrow {
   display: flex;
   order: 1;
   justify-content: center;
@@ -91,7 +91,7 @@ h4:hover {
   outline: none !important;
 }
 
-.right-arrow {
+.related-right-arrow {
   display: flex;
   order: 3;
   justify-content: center;

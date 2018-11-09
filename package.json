@@ -18,7 +18,7 @@
     "test": "jest --coverage",
     "schema": "node database/faker.js; mysql -u root --local-infile < database/schema.sql",
     "build": "webpack --watch",
-    "start": "nodemon server/listen.js"
+    "start": "node server/listen.js"
   },
   "dependencies": {
     "axios": "^0.18.0",

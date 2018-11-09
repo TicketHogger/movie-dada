@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  related:
+    build: ./
+    depends_on:
+      - 'database'
+    ports:
+      - '3003:3003'
+
+  # proxy:
+  #   build: proxy/
+  #   ports:
+  #     - '3009:3000'
+
+  database:
+    build: database/
+    ports:
+      - '3306:3306'

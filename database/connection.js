@@ -2,6 +2,7 @@ const mysql = require('mysql');
 
 const connection = mysql.createConnection({
   user: 'root',
+  host: 'database',
   database: 'related_movies',
 });
 
