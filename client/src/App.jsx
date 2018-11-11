@@ -4,8 +4,6 @@ import PosterRow from './PosterRow';
 import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 
-const axios = require('axios');
-
 const randNum = max => Math.floor(Math.random() * max);
 const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
 
@@ -27,10 +25,9 @@ class App extends React.Component {
   getMovies() {
     const genre = genres[randNum(genres.length)];
     fetch(`/api/movies/:${genre}/relatedmovies`)
-      .then((response) => {
-        response.json().then((res) => {
-          this.setState({ movieList: res.data });
-        });
+      .then(response => response.json())
+      .then((movList) => {
+        this.setState({ movieList: movList });
       })
       .catch(error => console.log(error));
   }
