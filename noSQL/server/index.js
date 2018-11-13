@@ -14,8 +14,9 @@ app.get('/api/movies/:genre/relatedmovies', (req, res) => {
     if (error) {
       console.log(error);
       res.status(500).send(error.message);
+    } else {
+      res.send(results);
     }
-    res.send(results);
   });
 });
 
