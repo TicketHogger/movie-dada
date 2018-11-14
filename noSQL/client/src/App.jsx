@@ -22,10 +22,14 @@ class App extends React.Component {
     this.getMovies();
   }
 
-  // MM notes: on load of page, generates a random genre and queries the database for related movies 
+  // MM notes: 
+  // on load of page, generates a random genre and queries the database for movies that match that genre
+  // to stress test the database, i should be sure to put the genre i'm searching for towards the end of the records
+  // to make sure it is running all the way through the database 
+
   getMovies() {
     const genre = genres[randNum(genres.length)];
-    fetch(`api/movies/:${genre}/relatedmovies`)
+    fetch(`api/movies/${genre}/relatedmovies`)
       .then(response => response.json())
       .then((movList) => {
         this.setState({ movieList: movList });
