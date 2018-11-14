@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS related_movies;
 
 CREATE DATABASE related_movies;
@@ -12,9 +13,10 @@ CREATE TABLE movies (
   genre TEXT NOT NULL
 );
 
-LOAD DATA LOCAL INFILE './movie.csv' 
+LOAD DATA LOCAL INFILE '/Users/marymatthews/SDC/related_movies/noSQL/database/movie.csv' 
 INTO TABLE movies 
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
+

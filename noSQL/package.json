@@ -18,7 +18,7 @@
     "test": "jest --coverage",
     "schema": "node database/faker.js; mysql -u root --local-infile < database/schema.sql",
     "build": "webpack --watch",
-    "start": "node server/listen.js"
+    "start": "nodemon server/listen.js"
   },
   "dependencies": {
     "babel-core": "^7.0.0-bridge.0",
