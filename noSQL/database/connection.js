@@ -15,7 +15,7 @@ const getAll = (query, callback) => {
   });
 };
 
-const addOne = (title, year, image, genre, callback) => {
+const addMovie = (title, year, image, genre, callback) => {
 
   // console.log('year>>>>>>>>>>>>>>>>>>>>>>', year);
   const queryStr = `INSERT INTO movies (title, year, image, genre) VALUES (?, ?, ?, ?)`;
@@ -72,7 +72,17 @@ const updateMovieData = (id, title, year, image, genre, callback) => {
     });
   }
 
-
 };
 
-module.exports = { getAll, addOne, updateMovieData };
+const deleteMovie = (id, callback) => {
+  const queryStr = 'DELETE FROM movies WHERE id = ?';
+  connection.query(queryStr, [id], (error, results) => {
+    if (error) {
+      callback(error);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+module.exports = { getAll, addMovie, updateMovieData, deleteMovie };

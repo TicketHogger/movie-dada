@@ -30,7 +30,7 @@ app.get('/api/movies/:genre/relatedmovies', (req, res) => {
 
 app.post('/api/movies', (req, res) => {
   // console.log('req from index.js line 30>>>>>>>>>>>>>>>>>', req.body);
-  db.addOne(req.body.title, req.body.year, req.body.image, req.body.genre, (error, results) => {
+  db.addMovie(req.body.title, req.body.year, req.body.image, req.body.genre, (error, results) => {
     if (error) {
       res.status(500).send(error.message);
     } else {
@@ -42,7 +42,6 @@ app.post('/api/movies', (req, res) => {
 app.put('/api/movies', (req, res) => {
 
   // console.log(req.body);
-
   db.updateMovieData(req.body.movieId, req.body.title, req.body.year, req.body.image, req.body.genre, (error, results) => {
     if (error) {
       res.status(500).send(error.message);
@@ -50,6 +49,19 @@ app.put('/api/movies', (req, res) => {
       res.status(202).send();
     }
   });
+});
+
+app.delete('/api/movies', (req, res) => {
+
+  console.log(req.body);
+  db.deleteMovie(req.body.movieId, (error, results) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else {
+      res.status(200).send();
+    }
+  });
+
 });
 
 module.exports = app;
