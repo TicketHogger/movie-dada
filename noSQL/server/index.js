@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const db = require('../database/connection.js');
+// when want to switch to other database, could just what db imports here
 
 const app = express();
 
@@ -52,8 +53,7 @@ app.put('/api/movies', (req, res) => {
 });
 
 app.delete('/api/movies', (req, res) => {
-
-  console.log(req.body);
+  // console.log(req.body);
   db.deleteMovie(req.body.movieId, (error, results) => {
     if (error) {
       res.status(500).send(error.message);
