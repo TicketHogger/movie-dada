@@ -14,12 +14,13 @@ fs.writeFile('database/movie.csv', 'id,title,year,image,genre', (err) => {
 
 const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
 
-for (let i = 1; i < 101; i += 1) {
+for (let i = 1; i < 1000000; i += 1) {
   let year = faker.date.future();
   year = Number(JSON.stringify(year).slice(1, 5));
 
   const movie = {
-    title: faker.lorem.words(),
+    // add + i to title to ensure all titles are unique 
+    title: faker.lorem.words() + i,
     year,
     image: `https://s3-us-west-1.amazonaws.com/moovi-images/${randomInt(20)}.jpeg`,
     genre: genres[randNum(genres.length)],
