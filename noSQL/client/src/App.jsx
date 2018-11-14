@@ -27,9 +27,9 @@ class App extends React.Component {
   // to stress test the database, i should be sure to put the genre i'm searching for towards the end of the records
   // to make sure it is running all the way through the database 
 
-  // if i had a component on the front end where you could click to update the genre
-  // it would invoke a function with the movieId and the genre you want it to update to 
-  // so it would have in the post body/data the movieId and the genre 
+  // if i had a component on the front end where you could click to update a data point about the movie
+  // it would invoke a function with the movieId and the data for the field you want to update
+  // so it would have in the post body/dataJSONobj the movieId and whatever key/value pair for fields you want to update
 
   getMovies() {
     const genre = genres[randNum(genres.length)];

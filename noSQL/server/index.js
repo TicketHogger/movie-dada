@@ -39,14 +39,17 @@ app.post('/api/movies', (req, res) => {
   });
 });
 
-// app.put('/api/movies', (req, res) => {
-//   db.updateMovieData(req.body.movieId, req.body.title, req.body.year, req.body.image, req.body.genre, (error, results) => {
-//     if (error) {
-//       res.status(500).send(error.message);
-//     } else {
-//       res.status(201).send();
-//     }
-//   });
-// });
+app.put('/api/movies', (req, res) => {
+
+  // console.log(req.body);
+
+  db.updateMovieData(req.body.movieId, req.body.title, req.body.year, req.body.image, req.body.genre, (error, results) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else {
+      res.status(202).send();
+    }
+  });
+});
 
 module.exports = app;

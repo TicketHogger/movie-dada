@@ -32,11 +32,44 @@ const addOne = (title, year, image, genre, callback) => {
 
 const updateMovieData = (id, title, year, image, genre, callback) => {
 
-  // UPDATE movies SET genre = 'romance' WHERE genre = 'mary';
   if (title) {
-    connection.query(`UPDATE movies SET title = ? WHERE genre = ?`, [id, title], (err, results) => {
+    connection.query(`UPDATE movies SET title = ? WHERE id = ?`, [title, id], (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
+  }
 
-    })
+  if (year) {
+    connection.query(`UPDATE movies SET year = ? WHERE id = ?`, [year, id], (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
+  }
+
+  if (image) {
+    connection.query(`UPDATE movies SET image = ? WHERE id = ?`, [image, id], (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
+  }
+
+  if (genre) {
+    connection.query(`UPDATE movies SET genre = ? WHERE id = ?`, [genre, id], (err, results) => {
+      if (err) {
+        callback(err);
+      } else {
+        callback(null, results);
+      }
+    });
   }
 
 
