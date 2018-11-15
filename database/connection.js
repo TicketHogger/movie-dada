@@ -5,8 +5,18 @@ const connection = mysql.createConnection({
   database: 'related_movies',
 });
 
-const getAll = (query, callback) => {
-  connection.query(`SELECT * from movies WHERE genre = '${query}'`, (error, results) => {
+const getAll = (genre, callback) => {
+  connection.query(`SELECT * from movies WHERE genre = '${genre}'`, (error, results) => {
+    if (error) {
+      callback(error);
+    } else {
+      callback(null, results);
+    }
+  });
+};
+
+const getOne = (id, callback) => {
+  connection.query('SELECT * from movies WHERE id = ?', [id], (error, results) => {
     if (error) {
       callback(error);
     } else {
@@ -16,7 +26,6 @@ const getAll = (query, callback) => {
 };
 
 const addMovie = (title, year, image, genre, callback) => {
-
   // console.log('year>>>>>>>>>>>>>>>>>>>>>>', year);
   const queryStr = `INSERT INTO movies (title, year, image, genre) VALUES (?, ?, ?, ?)`;
 
@@ -27,7 +36,6 @@ const addMovie = (title, year, image, genre, callback) => {
       callback(null, results);
     }
   });
-
 };
 
 const updateMovieData = (id, title, year, image, genre, callback) => {
@@ -85,4 +93,4 @@ const deleteMovie = (id, callback) => {
   });
 };
 
-module.exports = { getAll, addMovie, updateMovieData, deleteMovie };
+module.exports = { getAll, getOne, addMovie, updateMovieData, deleteMovie };
