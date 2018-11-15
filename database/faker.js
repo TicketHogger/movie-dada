@@ -22,12 +22,12 @@ for (let i = 1; i < 1000000; i += 1) {
     // add + i to title to ensure all titles are unique 
     title: faker.lorem.words() + i,
     year,
-    image: `https://s3-us-west-1.amazonaws.com/moovi-images/${randomInt(20)}.jpeg`,
+    image: `https://s3.us-east-2.amazonaws.com/ticket-hogger/movie-posters/movieImg${randomInt(299)}.png`,
     genre: genres[randNum(genres.length)],
   };
 
   fs.appendFile('database/movie.csv', `\n"${i}","${movie.title}",${movie.year},"${movie.image}","${movie.genre}"`, (err) => {
     if (err) throw err;
-    console.log('Saved!');
+    console.log(`saved! now at ${i / 1000000}%`);
   });
 }
