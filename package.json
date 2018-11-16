@@ -16,7 +16,8 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "schema": "node database/faker.js; mysql -u root --local-infile < database/schema.sql",
+    "writeCSV": "node database/faker.js",
+    "seed-database": "mysql -u root --local-infile < database/schema.sql",
     "build": "webpack --watch",
     "start": "nodemon server/listen.js"
   },
@@ -30,7 +31,9 @@
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "regenerator-runtime": "^0.12.1"
+    "regenerator-runtime": "^0.12.1",
+    "request": "^2.88.0",
+    "stream": "0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
