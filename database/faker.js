@@ -1,5 +1,5 @@
 // NOTES:
-// 
+// my notes
 
 const faker = require('faker');
 const fs = require('fs');
