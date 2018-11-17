@@ -5,7 +5,7 @@ const randomInt = max => Math.floor(Math.random() * max + 1);
 const randNum = max => Math.floor(Math.random() * max);
 const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
 
-const file = fs.createWriteStream('database/movie.csv');
+const file = fs.createWriteStream('database/movie2.csv');
 file.write('id,title,year,image,genre\n');
 
 function writeOneMillionTimes() {
@@ -28,7 +28,7 @@ function writeOneMillionTimes() {
           genre: genres[randNum(genres.length)],
         };
 
-        file.write(`"${i}","${movie.title}",${movie.year},"${movie.image}","${movie.genre}"\n`, () => {
+        file.write(`"${movie.title}",${movie.year},"${movie.image}","${movie.genre}"\n`, () => {
           console.log('wrote one');
           console.clear();
         });
@@ -45,7 +45,7 @@ function writeOneMillionTimes() {
           genre: genres[randNum(genres.length)],
         };
 
-        ok = file.write(`"${i}","${movie.title}",${movie.year},"${movie.image}","${movie.genre}"\n`);
+        ok = file.write(`"${movie.title}", ${movie.year}, "${movie.image}","${movie.genre}"\n`);
       }
     } while (i > 1 && ok);
     if (i > 1) {

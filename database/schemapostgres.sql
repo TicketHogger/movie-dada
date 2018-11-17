@@ -13,5 +13,5 @@ CREATE TABLE movies (
   genre TEXT NOT NULL
 );
 
-COPY movies FROM '/Users/marymatthews/SDC/related_movies/database/movie.csv' 
+COPY movies("title", "year", "image", "genre") FROM '/Users/marymatthews/SDC/related_movies/database/movie2.csv' 
 WITH DELIMITER ',' CSV HEADER;
