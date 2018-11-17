@@ -25,4 +25,5 @@ build/
 client/dist/bundle.js
 
 database/movie.csv
+database/movie2.csv 
 database/images

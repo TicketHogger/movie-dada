@@ -16,9 +16,11 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "writeCSV": "node database/faker.js",
-    "seed-database": "mysql -u root --local-infile < database/schema.sql",
+    "writeCSV": "node --max-old-space-size=4096 database/faker.js",
+    "seed-database-mySql": "mysql -u root --local-infile < database/schema.sql",
+    "seed-database-postgresQL": "psql postgres -U marymatthews < database/schemapostgres.sql",
     "build": "webpack --watch",
+    "start-postgresQL": "brew services restart postgres",
     "start": "nodemon server/listen.js"
   },
   "dependencies": {
