@@ -19,6 +19,7 @@
     "writeCSV": "node --max-old-space-size=4096 database/faker.js",
     "seed-database-mySql": "mysql -u root --local-infile < database/schema.sql",
     "seed-database-postgresQL": "psql postgres -U marymatthews < database/schemapostgres.sql",
+    "seed-database-mongoDB": "mongoimport  --db related_movies --collection movies --drop --type csv --file /Users/marymatthews/SDC/related_movies/database/movie2.csv --headerline",
     "build": "webpack --watch",
     "start-postgresQL": "brew services restart postgres",
     "start": "nodemon server/listen.js"
@@ -29,6 +30,7 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "mongoose": "^5.3.12",
     "mysql": "^2.16.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",

@@ -6,7 +6,7 @@ const randNum = max => Math.floor(Math.random() * max);
 const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
 
 const file = fs.createWriteStream('database/movie2.csv');
-file.write('id,title,year,image,genre\n');
+file.write('title,year,image,genre\n');
 
 function writeOneMillionTimes() {
   let i = 10000001;
