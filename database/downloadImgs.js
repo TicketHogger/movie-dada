@@ -17,26 +17,3 @@ for (var i = 901; i < 1001; i++) {
     console.log(`image #${i} downloaded`);
   });
 }
-
-
-// for (var i = 1; i < 1001; i++) {
-
-//   fetch('https://loremflickr.com/130/190/filmposter')
-//     .then(response => {
-//       if (response.ok) return response.json();
-//       throw new Error(response.statusText)  // throw an error if there's something wrong with the response
-//     })
-//     .then(function handleData(data) {
-//       // your happy data goes here
-//       fs.writeFile(`/Users/marymatthews/SDC/related_movies/database/images/movieImg${i}.png`, data, err => {
-//         if (err) {
-//           console.log(err);
-//         } else {
-//           console.log('file saved!');
-//         }
-//       });
-//       ));
-//       .catch (function handleError(error) {
-//     // handle errors here
-//   })
-// }

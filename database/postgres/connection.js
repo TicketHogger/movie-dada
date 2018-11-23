@@ -1,0 +1,44 @@
+const { Pool, Client } = require('pg');
+
+const pool = new Pool({
+  user: 'marymatthews',
+  host: 'localhost',
+  database: 'related_movies',
+});
+
+pool.query('SELECT NOW()', (err, res) => {
+  if (err) {
+    console.log('error from connection.js line 11>>>', err);
+  } else {
+    console.log(null, res);
+  }
+  pool.end();
+});
+
+const client = new Client({
+  user: 'marymatthews',
+  host: 'localhost',
+  database: 'related_movies',
+});
+client.connect();
+
+//***** DATABASE METHODS */
+
+const getAll = (actor, callback) => {
+
+  const query = {
+    text: 'SELECT * FROM movies WHERE actor = $1',
+    values: [actor],
+  };
+
+  client.query(query, (error, results) => {
+    if (error) {
+      callback(error);
+    } else {
+      callback(null, results);
+    }
+    // client.end();
+  });
+};
+
+module.exports = { getAll };

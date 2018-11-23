@@ -5,7 +5,10 @@ import LeftArrow from './LeftArrow';
 import RightArrow from './RightArrow';
 
 const randNum = max => Math.floor(Math.random() * max);
-const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
+// const genres = ['action', 'romance', 'comedy', 'horror', 'documentary'];
+const actors = ['Russel Bernhard Jr.', 'Eveline Harvey', 'Sherman Boehm', 'Erna Windler', 'Israel Cronin', "Dayna O'Reilly V",
+  'Franco Rodriguez', 'Earline Trantow', 'Gerda Osinski', 'Mrs. Ashtyn Johns', 'Alycia Bashirian', 'Theresa Wunsch', 'Taya Raynor',
+  'Monica Cartwright V', 'Abagail Marvin', 'Lilliana Batz Sr.', 'Maureen Goldner', 'Ofelia Berge'];
 
 class App extends React.Component {
   constructor(props) {
@@ -32,8 +35,10 @@ class App extends React.Component {
   // so it would have in the post body/dataJSONobj the movieId and whatever key/value pair for fields you want to update
 
   getMovies() {
-    const genre = genres[randNum(genres.length)];
-    fetch(`api/movies/${genre}/relatedmovies`)
+    const actor = actors[randNum(actors.length)].split(' ').join('+');
+    console.log(actor);
+
+    fetch(`api/movies/${actor}/relatedmovies`)
       .then(response => response.json())
       .then((movList) => {
         this.setState({ movieList: movList });
