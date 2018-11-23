@@ -11,4 +11,3 @@
 |Update   |PUT    |/api/movies                      |Update one movie record                 |
 |Delete   |DELETE |/api/movies                      |Delete one movie record                 |
 
-
