@@ -24,6 +24,17 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
   });
 });
 
+app.post('/api/movies', (req, res) => {
+  // console.log('req from index.js line 30>>>>>>>>>>>>>>>>>', req.body);
+  db.addMovie(req.body.title, req.body.year, req.body.image, req.body.actor, (error, results) => {
+    if (error) {
+      res.status(500).send(error.message);
+    } else {
+      res.status(201).send();
+    }
+  });
+});
+
 // no longer querying by genre...
 // app.get('/api/movies/:genre/relatedmovies', (req, res) => {
 //   const param = req.params.genre;
@@ -51,16 +62,6 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
 //   });
 // });
 
-// app.post('/api/movies', (req, res) => {
-//   // console.log('req from index.js line 30>>>>>>>>>>>>>>>>>', req.body);
-//   db.addMovie(req.body.title, req.body.year, req.body.image, req.body.genre, (error, results) => {
-//     if (error) {
-//       res.status(500).send(error.message);
-//     } else {
-//       res.status(201).send();
-//     }
-//   });
-// });
 
 // app.put('/api/movies', (req, res) => {
 

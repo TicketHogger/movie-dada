@@ -41,4 +41,20 @@ const getAll = (actor, callback) => {
   });
 };
 
-module.exports = { getAll };
+const addMovie = (title, year, image, actor, callback) => {
+  const query = {
+    text: 'INSERT INTO movies(title, year, image, actor) VALUES($1, $2, $3, $4)',
+    values: [title, year, image, actor],
+  };
+
+  client.query(query, (error, results) => {
+    if (error) {
+      callback(error);
+    } else {
+      callback(null, results);
+    }
+    // client.end();
+  });
+
+};
+module.exports = { getAll, addMovie };
