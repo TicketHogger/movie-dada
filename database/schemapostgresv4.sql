@@ -7,11 +7,11 @@ CREATE DATABASE related_movies with owner = marymatthews;
 
 CREATE TABLE movies (
   id SERIAL PRIMARY KEY,
-  title TEXT NOT NULL,
+  title TEXT NOT NULL UNIQUE,
   year SMALLINT NOT NULL,
   image TEXT NOT NULL,
-  genre TEXT NOT NULL
+  actor TEXT NOT NULL
 );
 
-COPY movies("title", "year", "image", "genre") FROM '/Users/marymatthews/SDC/related_movies/database/movie2.csv' 
+COPY movies("title", "year", "image", "actor") FROM '/Users/marymatthews/SDC/related_movies/database/movie4.csv' 
 WITH DELIMITER ',' CSV HEADER;

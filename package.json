@@ -18,8 +18,8 @@
     "test": "jest --coverage",
     "writeCSV": "node --max-old-space-size=4096 database/faker.js",
     "seed-database-mySql": "mysql -u root --local-infile < database/schema.sql",
-    "seed-database-postgresQL": "psql postgres -U marymatthews < database/schemapostgres.sql",
-    "seed-database-mongoDB": "mongoimport  --db related_movies --collection movies --drop --type csv --file /Users/marymatthews/SDC/related_movies/database/movie2.csv --headerline",
+    "seed-database-postgresQL": "psql postgres -U marymatthews < database/schemapostgresv4.sql",
+    "seed-database-mongoDB": "mongoimport  --db related_movies --collection movies --drop --type csv --file /Users/marymatthews/SDC/related_movies/database/movie4.csv --headerline",
     "build": "webpack --watch",
     "start-postgresQL": "brew services restart postgres",
     "start": "nodemon server/listen.js"

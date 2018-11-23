@@ -25,6 +25,8 @@ const getOne = (id, callback) => {
   });
 };
 
+// could also wriet get one by title, but not necessary  
+
 const addMovie = (title, year, image, genre, callback) => {
   // console.log('year>>>>>>>>>>>>>>>>>>>>>>', year);
   const queryStr = `INSERT INTO movies (title, year, image, genre) VALUES (?, ?, ?, ?)`;
