@@ -1,0 +1,36 @@
+config:
+  target: 'http://localhost:3003'
+  # http: 
+  #   pool: 1000
+  phases:
+    - duration: 60
+      arrivalRate: 10
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+  variables:
+    actor:
+      - 'Russel+Bernhard+Jr.'
+      - 'Eveline+Harvey'
+      - 'Sherman+Boehm'
+      - 'Erna+Windler'
+      - 'Israel+Cronin'
+      - "Dayna+O'Reilly+V"
+      - 'Franco+Rodriguez'
+      - 'Earline+Trantow'
+      - 'Gerda+Osinski'
+      - 'Mrs.+Ashtyn+Johns'
+      - 'Alycia+Bashirian'
+      - 'Theresa+Wunsch'
+      - 'Taya+Raynor'
+      - 'Monica+Cartwright+V'
+      - 'Abagail+Marvin'
+      - 'Lilliana+Batz+Sr.'
+      - 'Maureen+Goldner'
+      - 'Ofelia+Berge'
+
+scenarios:
+  - flow:
+    - get:
+        url: "/api/movies/{{ actor }}/relatedmovies"
+        gzip: true

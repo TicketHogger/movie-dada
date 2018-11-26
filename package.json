@@ -22,7 +22,9 @@
     "seed-database-mongoDB": "mongoimport  --db related_movies --collection movies --drop --type csv --file /Users/marymatthews/SDC/related_movies/database/movie4.csv --headerline",
     "build": "webpack --watch",
     "start-postgresQL": "brew services restart postgres",
-    "start": "nodemon server/listen.js"
+    "start": "nodemon server/listen.js",
+    "getTest": "artillery run ./spec/serverTests/getTest.yml",
+    "postTest": "artillery run ./spec/serverTests/postTest.yml"
   },
   "dependencies": {
     "babel-core": "^7.0.0-bridge.0",
@@ -46,6 +48,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^8.0.4",
+    "compression": "^1.7.3",
     "css-loader": "^1.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
