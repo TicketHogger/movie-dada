@@ -33,7 +33,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
   });
 });
 
-app.get('/loaderio-1fed563cf707d73598934ed38adeabe5', (req, res) => {
+app.get('/loaderio-1fed563cf707d73598934ed38adeabe5/', (req, res) => {
   res.send('loaderio-1fed563cf707d73598934ed38adeabe5');
 });
 
