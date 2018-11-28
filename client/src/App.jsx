@@ -42,9 +42,9 @@ class App extends React.Component {
       .then(response => response.json())
       .then((movList) => {
         this.setState({ movieList: movList });
-        // console.log(movList);
+        console.log(movList);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log('error line 42', error));
   }
 
   prevSlide() {

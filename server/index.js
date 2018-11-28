@@ -33,6 +33,10 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
   });
 });
 
+app.get('/loaderio-4045ca1af16b0da72cb16315f30e8da7', (req, res) => {
+  res.send('loaderio-4045ca1af16b0da72cb16315f30e8da7');
+});
+
 app.post('/api/movies', (req, res) => {
   // console.log('req from index.js line 30>>>>>>>>>>>>>>>>>', req.body);
   db.addMovie(req.body.title, req.body.year, req.body.image, req.body.actor, (error, results) => {
