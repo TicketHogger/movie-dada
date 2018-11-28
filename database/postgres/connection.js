@@ -3,7 +3,7 @@ const { Pool, Client } = require('pg');
 const pool = new Pool({
   user: 'marymatthews',
   password: 'password',
-  host: '3.17.25.63',
+  host: '3.17.23.188',
   port: 5432,
   database: 'related_movies',
 });
@@ -20,7 +20,7 @@ pool.query('SELECT NOW()', (err, res) => {
 const client = new Client({
   user: 'marymatthews',
   password: 'password',
-  host: '3.17.25.63',
+  host: '3.17.23.188',
   port: 5432,
   database: 'related_movies',
 });
