@@ -4,7 +4,7 @@ const pool = new Pool({
   user: 'marymatthews',
   password: 'password',
   host: '3.17.25.63',
-  port: '5432',
+  port: 5432,
   database: 'related_movies',
 });
 
@@ -21,6 +21,7 @@ const client = new Client({
   user: 'marymatthews',
   password: 'password',
   host: '3.17.25.63',
+  port: 5432,
   database: 'related_movies',
 });
 client.connect();

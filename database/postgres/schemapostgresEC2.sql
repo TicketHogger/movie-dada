@@ -12,5 +12,3 @@ CREATE TABLE movies (
   image TEXT NOT NULL,
   actor TEXT NOT NULL
 );
-
-COPY movies("title", "year", "image", "actor") FROM '/Users/marymatthews/SDC/related_movies/database/movie4.csv' WITH DELIMITER ',' CSV HEADER;
