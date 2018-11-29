@@ -1,4 +1,4 @@
-// const compression = require('compression');
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const db = require('../database/postgres/connection.js');
 
 const app = express();
-// app.use(compression());
+app.use(compression());
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
