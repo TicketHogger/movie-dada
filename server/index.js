@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const db = require('../database/postgres/connection.js');
 
 const app = express();
-app.use(compression());
+app.use(express.compress());
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
