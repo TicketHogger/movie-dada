@@ -1,19 +1,11 @@
-// const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 // const db = require('../database/mySQL/connection.js'); // for mySQL database
 const db = require('../database/postgres/connection.js');
+const redis = require('../database/redis/connection.js');
 
 const app = express();
-// app.use(express.compress());
-
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
@@ -24,13 +16,35 @@ app.use(bodyParser.json());
 app.get('/api/movies/:actor/relatedmovies', (req, res) => {
   const param = req.params.actor.split('+').join(' ');
   // res.send(param);
-  db.getAll(param, (error, results) => {
+
+  // check redis,
+  redis.getAll(param, (error, results) => {
     if (error) {
       res.status(500).send(error.message);
     } else {
-      res.send(results.rows);
+      console.log('results from server/redis line25', results);
+      if (results.length > 0) {
+        // if there, return data
+        res.status(200).send(results);
+      } else {
+        // if not there, get from postgres database,
+        db.getAll(param, (err, dbresults) => {
+          if (error) {
+            res.status(500).send(err.message);
+          } else {
+            // before sending database results back, add them to redis
+            redis.cacheMovies(param, JSON.stringify(dbresults.rows), (error, results) => {
+              if (error) {
+                res.send(error.message);
+              }
+            });
+            res.send(dbresults.rows);
+          }
+        });
+      }
     }
   });
+
 });
 
 app.get('/loaderio-1fed563cf707d73598934ed38adeabe5/', (req, res) => {

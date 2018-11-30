@@ -45,7 +45,7 @@ const getAll = (actor, callback) => {
   });
 };
 
-const addMovie = (title, year, image, actor, callback) => {
+const cacheMovies = (title, year, image, actor, callback) => {
   const query = {
     text: 'INSERT INTO movies(title, year, image, actor) VALUES($1, $2, $3, $4)',
     values: [title, year, image, actor],
@@ -61,4 +61,4 @@ const addMovie = (title, year, image, actor, callback) => {
   });
 
 };
-module.exports = { getAll, addMovie };
+module.exports = { getAll, cacheMovies };
