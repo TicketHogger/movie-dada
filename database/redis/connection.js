@@ -21,7 +21,7 @@ const getAll = (actor, callback) => {
   });
 };
 
-const addMovies = (actor, stringifiedMovies, callback) => {
+const cacheMovies = (actor, stringifiedMovies, callback) => {
   client.set(actor, stringifiedMovies, redis.print, (error, results) => {
     if (error) {
       callback(error);
@@ -31,4 +31,4 @@ const addMovies = (actor, stringifiedMovies, callback) => {
   });
 };
 
-module.exports = { getAll, addMovies };
+module.exports = { getAll, cacheMovies };
