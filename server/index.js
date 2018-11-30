@@ -40,6 +40,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
                 console.log('error from redis.cacheMovies>>>>>>>>>>>>>>..', error3.message);
               } else {
                 console.log('movies were cached>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
+                console.log('results should look like this format:>>>>>>>>>>>>>>>>>', dbresults.rows);
                 res.send(dbresults.rows);
               }
             });
