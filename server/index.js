@@ -25,6 +25,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
       console.log('results from server/redis line25', results);
       if (results) {
         // if there, return data
+        console.log('GOT RESULTS FROM REDIS!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
         res.status(200).send(results);
       } else {
         // if not there, get from postgres database,
@@ -36,6 +37,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
             redis.cacheMovies(param, JSON.stringify(dbresults.rows), (error3, results3) => {
               if (error3) {
                 res.send(error3.message);
+                console.log('error from redis.cacheMOvies>>>>>>>>>>>>>>..', error3.message);
               }
             });
             res.send(dbresults.rows);
