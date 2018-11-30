@@ -23,7 +23,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
       res.status(500).send('line 23', error.message);
     } else {
       console.log('results from server/redis line25', results);
-      if (results.length > 0) {
+      if (results) {
         // if there, return data
         res.status(200).send(results);
       } else {
