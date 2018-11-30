@@ -42,6 +42,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
                 console.log('movies were cached>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
               }
             });
+            console.log('from database', dbresults.rows[0].actor);
             res.send(dbresults.rows);
           }
         });
