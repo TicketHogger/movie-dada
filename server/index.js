@@ -20,12 +20,12 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
   // check redis,
   redis.getAll(param, (error, results) => {
     if (error) {
-      res.status(500).send('line 23', error.message);
+      res.status(500).send(error.message);
     } else {
-      console.log('results from server/redis line25', results);
+      // console.log('results from server/redis line25', results);
       if (results) {
         // if there, return data
-        console.log('GOT RESULTS FROM REDIS!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
+        // console.log('GOT RESULTS FROM REDIS!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>');
         res.status(200).send(results);
       } else {
         // if not there, get from postgres database,
@@ -37,12 +37,12 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
             redis.cacheMovies(param, JSON.stringify(dbresults.rows), (error3, results3) => {
               if (error3) {
                 res.send(error3.message);
-                console.log('error from redis.cacheMovies>>>>>>>>>>>>>>..', error3.message);
+                // console.log('error from redis.cacheMovies>>>>>>>>>>>>>>..', error3.message);
               } else {
-                console.log('movies were cached>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
+                // console.log('movies were cached>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
               }
             });
-            console.log('from database', dbresults.rows[0].actor);
+            // console.log('from database', dbresults.rows[0].actor);
             res.send(dbresults.rows);
           }
         });
