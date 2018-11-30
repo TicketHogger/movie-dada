@@ -5,7 +5,7 @@ const client = redis.createClient({
 
 client.on('error', function (err) {
   console.log('Error ' + err)
-})
+});
 
 // get all movies for the given actor
 const getAll = (actor, callback) => {

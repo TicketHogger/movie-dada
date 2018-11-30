@@ -33,9 +33,9 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
             res.status(500).send(err.message);
           } else {
             // before sending database results back, add them to redis
-            redis.cacheMovies(param, JSON.stringify(dbresults.rows), (error, results) => {
-              if (error) {
-                res.send(error.message);
+            redis.cacheMovies(param, JSON.stringify(dbresults.rows), (error3, results3) => {
+              if (error3) {
+                res.send(error3.message);
               }
             });
             res.send(dbresults.rows);
