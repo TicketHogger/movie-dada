@@ -1,6 +1,6 @@
 const redis = require('redis');
 const client = redis.createClient({
-  host: '18.220.182.180'
+  host: '172.31.21.213',
 });
 
 client.on('error', function (err) {

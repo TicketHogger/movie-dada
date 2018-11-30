@@ -20,7 +20,7 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
   // check redis,
   redis.getAll(param, (error, results) => {
     if (error) {
-      res.status(500).send(error.message);
+      res.status(500).send('line 23', error.message);
     } else {
       console.log('results from server/redis line25', results);
       if (results.length > 0) {
