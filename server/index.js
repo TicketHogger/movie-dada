@@ -37,10 +37,11 @@ app.get('/api/movies/:actor/relatedmovies', (req, res) => {
             redis.cacheMovies(param, JSON.stringify(dbresults.rows), (error3, results3) => {
               if (error3) {
                 res.send(error3.message);
-                console.log('error from redis.cacheMOvies>>>>>>>>>>>>>>..', error3.message);
+                console.log('error from redis.cacheMovies>>>>>>>>>>>>>>..', error3.message);
+              } else {
+                console.log('movies were cached>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
+                res.send(dbresults.rows);
               }
-              console.log('movies were cached>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.');
-              res.send(dbresults.rows);
             });
           }
         });

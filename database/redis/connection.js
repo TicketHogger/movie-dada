@@ -22,12 +22,12 @@ const getAll = (actor, callback) => {
 };
 
 const cacheMovies = (actor, stringifiedMovies, callback) => {
-  client.set(actor, stringifiedMovies, redis.print, (error, results) => {
+  client.set(actor, stringifiedMovies, (error, results) => {
     if (error) {
       callback(error);
-    } else {
-      callback(null, results);
-    }
+    } // else {
+    //   callback(null, results);
+    // }
   });
 };
 
