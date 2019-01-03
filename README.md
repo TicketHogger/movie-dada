@@ -18,4 +18,5 @@
 |Update   |PUT    |/api/movies                                             |Update one movie record                 |
 |Delete   |DELETE |/api/movies                                             |Delete one movie record                 |
 
+![600_rps_after_load_balancing](https://user-images.githubusercontent.com/29344313/50661847-470c3880-0f59-11e9-9e93-2a893bb99718.png)
 
